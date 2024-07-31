@@ -6,8 +6,7 @@ class PktRecordLogAdmin(ModelAdmin):
     pass
 
 
+
 @register(Pktreader)
 class PktreaderAdmin(ModelAdmin):
-    pass
-
-# ddfff
+    list_display = ("id", "mac_addr", "ip_addr", "time")
