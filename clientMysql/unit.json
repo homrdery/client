@@ -9,7 +9,6 @@
 		"webnet": {
 			"type": "python 3.11",
 			"path": "/clientMysql/clientMysql",
-			"home": "/venv/",
 			"module": "wsgi",
 			"isolation": {
 				"rootfs": "/opt/www/webnet/"
