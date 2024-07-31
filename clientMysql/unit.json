@@ -8,11 +8,10 @@
 	"applications": {
 		"webnet": {
 			"type": "python 3.11",
-			"path": "/clientMysql/clientMysql",
-			"module": "wsgi",
-			"isolation": {
-				"rootfs": "/opt/www/webnet/"
-			}
+			"path": "/opt/www/webnet/clientMysql/clientMysql",
+			"working_directory": "/opt/www/webnet/clientMysql/clientMysql",
+			"home": "/opt/www/webnet/venv",
+			"module": "wsgi"
 		}
 	}
 }
