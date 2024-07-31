@@ -7,7 +7,7 @@
 	"routes": [],
 	"applications": {
 		"webnet": {
-		  "type": "python",
+		  "type": "python 3.11",
 		  "path": "/opt/www/webnet/clientMysql/clientMysql",
 		  "module": "wsgi"
 	  }
