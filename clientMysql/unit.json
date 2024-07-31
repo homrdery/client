@@ -1,5 +1,15 @@
 {
-	"listeners": {},
+	"listeners": {
+		"localhost:8080": {
+          "pass": "applications/webnet"
+      }
+	},
 	"routes": [],
-	"applications": {}
+	"applications": {
+		"python": {
+		  "type": "python",
+		  "path": "/opt/www/webnet/clientMysql/clientMysql",
+		  "module": "wsgi"
+	  }
+	}
 }
