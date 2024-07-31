@@ -14,5 +14,5 @@ class Pktreader(models.Model):
     ip_addr = models.CharField("id_addr", max_length=32, null=False, blank=False, help_text="ip адрес pc")
     time = models.DateTimeField("time", null=False, help_text="Время обнуружения pc")
     class Meta:
-        verbose_name = "компьютор"
-        verbose_name_plural = "компьюторы"
+        verbose_name = "компьютер"
+        verbose_name_plural = "компьютеры"
