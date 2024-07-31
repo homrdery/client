@@ -9,4 +9,4 @@ class PktRecordLogAdmin(ModelAdmin):
 
 @register(Pktreader)
 class PktreaderAdmin(ModelAdmin):
-    list_display = ("id", "mac_addr", "ip_addr", "time")
+    list_display = ("mac_addr", "ip_addr", "time")
