@@ -27,4 +27,3 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 
-schema_view = get_swagger_view(title='My rest  API')
