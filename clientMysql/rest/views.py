@@ -30,7 +30,7 @@ class PktRecordLogViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 class PktreaderViewSet(viewsets.ModelViewSet):
-    queryset = PktRecordLog.objects.all().order_by('time')
+    queryset = Pktreader.objects.all().order_by('time')
     serializer_class = PktreaderSerializer
     permission_classes = [permissions.IsAuthenticated]
 
