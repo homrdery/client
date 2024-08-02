@@ -12,7 +12,7 @@
         </thead>
         <tbody>
         {% for item in items %}
-            <tr>
+            <tr align="cemter">
                 <td>
                     {{item.mac_addr}}
                 </td>
@@ -23,7 +23,7 @@
                     {{item.time}}
                 </td>
             </tr>
-          {% endfor %}
+        {% endfor %}
         </tbody>
     </table>
 {% endblock body %}
