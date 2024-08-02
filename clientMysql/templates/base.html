@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Webnet demo</title>
   </head>
-  <body>
-  {% block content %}
-    <h1>Base Hello, world!</h1>
-  {% endblock content %}
-  </body>
+  {% block body %}
+    <body>
+      {% block content %}
+        <h1>Base Hello, world!</h1>
+      {% endblock content %}
+    </body>
+  {% endblock body %}
 </html>
