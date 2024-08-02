@@ -31,6 +31,8 @@ ALLOWED_HOSTS = ["webnet.loc", "localhost"]
 
 INSTALLED_APPS = [
     'index',
+    'rest',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

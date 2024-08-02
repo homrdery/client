@@ -1,6 +1,6 @@
 
+from datetime import datetime
 
-x = [1,]
-
-
-print (type(x))
+x = datetime.now()
+print(x)
+print(type(x))
