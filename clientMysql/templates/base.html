@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Webnet:{% block title %}demo{% endblock title %}</title>
+    {% block tag_title %}<title>{% block global_title %}Webnet:{% block title %}demo{% endblock title %}{% endblock global_title %}</title>{% endblock tag_title %}
   </head>
   {% block body %}
     <body>
