@@ -1,6 +1,7 @@
-from django.template.defaulttags import url
 from django.urls import include, path
-from rest_framework import routers
+from rest_framework import routers, permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
 from rest import views
 
@@ -8,7 +9,22 @@ router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 
+schema_view = get_schema_view(
+    openapi.Info(
+        title="VR-Admin portal API",
+        default_version='v1',
+        # description="VR-Admin REST API",
+        # terms_of_service="https://www.google.com/policies/terms/",
+        # contact=openapi.Contact(email="vradmin@neolant.com"),
+        # license=openapi.License(name="EULA"),
+    ),
+    public=True,
+    permission_classes=[permissions.AllowAny, ],
+)
+
 urlpatterns = [
     path('', include(router.urls)),
-    url(r'^$', views.schema_view)
+    path('rest-api.json', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger'),
+
 ]

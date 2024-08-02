@@ -3,7 +3,6 @@ from django.shortcuts import render
 # Create your views here.
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
-from rest_framework_swagger.views import get_swagger_view
 
 from .serializers import GroupSerializer, UserSerializer
 
