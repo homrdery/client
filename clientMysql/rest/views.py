@@ -3,8 +3,9 @@ from django.shortcuts import render
 # Create your views here.
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
+from rest_framework_swagger.views import get_swagger_view
 
-from tutorial.quickstart.serializers import GroupSerializer, UserSerializer
+from .serializers import GroupSerializer, UserSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -23,3 +24,8 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all().order_by('name')
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+
+
+schema_view = get_swagger_view(title='My rest  API')

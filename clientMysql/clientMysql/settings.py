@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'index',
     'rest',
     'rest_framework',
+    'rest_framework_swagger',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
