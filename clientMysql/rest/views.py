@@ -4,8 +4,8 @@ from django.shortcuts import render
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
 
-from .serializers import GroupSerializer, UserSerializer, PktRecordLogSerializer
-from index.models import PktRecordLog
+from .serializers import GroupSerializer, UserSerializer, PktRecordLogSerializer, PktreaderSerializer
+from index.models import PktRecordLog, Pktreader
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -29,5 +29,9 @@ class PktRecordLogViewSet(viewsets.ModelViewSet):
     serializer_class = PktRecordLogSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+class PktreaderViewSet(viewsets.ModelViewSet):
+    queryset = PktRecordLog.objects.all().order_by('time')
+    serializer_class = PktreaderSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 

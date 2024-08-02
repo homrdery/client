@@ -9,6 +9,8 @@ router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'PktRecordLog', views.PktRecordLogViewSet)
+router.register(r'Pktreader', views.PktreaderViewSet)
+
 
 schema_view = get_schema_view(
     openapi.Info(
