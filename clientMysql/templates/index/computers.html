@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Компьютеры{% endblock title %}
+{% block title %}{{title}}{% endblock title %}
 {% block body %}
     <p>Компьютеры</p>
     <table width="80%" border="1" >
@@ -11,17 +11,19 @@
         </tr>
         </thead>
         <tbody>
+        {% for item in items %}
             <tr>
                 <td>
-                    mac_addr
+                    {{item.mac_addr}}
                 </td>
                 <td>
-                    ip_addr
+                    {{item.ip_addr}}
                 </td>
                 <td>
-                    time
+                    {{item.time}}
                 </td>
             </tr>
+          {% endfor %}
         </tbody>
     </table>
 {% endblock body %}
