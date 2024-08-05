@@ -1,33 +1,6 @@
-{% extends "main.html" %}
+{% extends "page.html" %}
 
 {% block title %}главная страница{% endblock title %}
-{% block nav_sidebar %}
-{% endblock %}
-
 {% block content %}
     <p>Компьютеры</p>
-    <table width="80%" border="1" >
-        <thead>
-        <tr>
-            <th>Мак</th>
-            <th>адрес</th>
-            <th>Время</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for item in items %}
-            <tr align="center">
-                <td  align="right">
-                    {{item.mac_addr}}
-                </td>
-                <td>
-                    {{item.ip_addr}}
-                </td>
-                <td>
-                    {{item.time}}
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 {% endblock %}

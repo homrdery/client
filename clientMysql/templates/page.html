@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Webmet{% endblock %}</title>
+    {% block extra_headers %}{% endblock %}
+    <link href="/static/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/main/css/main.css" rel="stylesheet">
+    <link href="/static/main/css/main.css" rel="stylesheet">
+  </head>
+
+  <body class="d-flex flex-column h-100">
+  <div class="container">
+        <header class="p-3 bg-white text-dark">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/" title="Главная страница проекта" class="btn btn-outline-dark me-2">главная</a></li>
+                <li><a href="/methodology" title="Методология расчета рейтингов перевозчика" class="btn btn-outline-dark me-2">методология</a></li>
+            </ul>
+            <div class="text-end">
+            {% if user.is_authenticated %}
+                <strong>{% firstof user.get_short_name user.get_username %}</strong>&nbsp;
+                <a  href="/logout" title="Выход из системы" class="btn btn-outline-dark me-2">Выход</a>
+            {% else %}
+                <a  href="/login" title="Вход в систему" class="btn btn-outline-dark me-2">Вход</a>
+            {% endif %}
+            </div>
+          </div>
+      </header>
+        <main>
+            {% block content %}
+            <div class="container">
+                <p>"Рейтинг перевозчика" представляет собой организационно-управленческую систему,
+    автоматизирующую проведение комплексного исследования характеристик и показателей функционирования городских
+        транспортных систем и разработка научно обоснованных предложений по обеспечению мониторинга эффективности и
+        качества функционирования городских транспортных систем.
+    </p>
+            </div>
+            {% endblock %}
+
+    </main>
+      <footer class="text-muted  border-top bg-light footer fixed-bottom">
+          <div class="container-fluid" >
+              <a href="/" class="nav-link text-dark text-center"> "Рейтинг перевозчика" 2022</a>
+          </div>
+      </footer>
+      <script src="/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+    </div>
+    {% block extra_scripts %}{% endblock %}
+  </body>
+</html>
