@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    <link rel="stylesheet" href="{% static 'admin-lte/plugins/fontawesome-free/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'adminlte/plugins/fontawesome-free/css/all.min.css' %}">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'admin-lte/dist/css/adminlte.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'adminlte/css/adminlte.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -67,14 +67,14 @@
     </div>
 
 {% block javascript %}
-    <script src="{% static 'admin-lte/plugins/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'admin-lte/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'adminlte/plugins/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'adminlte/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
     <script>
         $.widget.bridge('uibutton', $.ui.button);
     </script>
-    <script src="{% static 'admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
-    <script src="{% static 'admin-lte/dist/js/adminlte.min.js' %}"></script>
-    <script src="{% static 'admin-lte/dist/js/demo.js' %}"></script>
+    <script src="{% static 'adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+    <script src="{% static 'adminlte/js/adminlte.min.js' %}"></script>
+    <script src="{% static 'adminlte/js/demo.js' %}"></script>
 {% endblock javascript %}
 
 {% block extra_js %}{% endblock %}
