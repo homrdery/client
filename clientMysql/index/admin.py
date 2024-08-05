@@ -11,4 +11,4 @@ class PktRecordLogAdmin(ModelAdmin):
 class PktreaderAdmin(ModelAdmin):
     list_display = ("mac_addr", "ip_addr", "time")
     list_filter = ('mac_addr', 'ip_addr')
-    search_fields = ('mac_addr', 'ip_addr')
+    # search_fields = ('mac_addr', 'ip_addr')
