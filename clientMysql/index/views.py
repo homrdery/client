@@ -7,10 +7,10 @@ from .models import Pktreader
 def index(request):
     return render(request, "index/index.html")
 
-# def computers(request):
-#     items = Pktreader.objects.all().order_by("time")
-#     params = {
-#         "items": items,
-#         "title": f"всего компов"
-#     }
-#     return render(request, "index/computers.html", params)
+def computers(request):
+    items = Pktreader.objects.all().order_by("time")
+    params = {
+        "items": items,
+        "title": f"всего компов"
+    }
+    return render(request, "index/computers.html", params)
