@@ -14,10 +14,3 @@ def computers(request):
         "title": f"всего компов"
     }
     return render(request, "index/computers.html", params)
-# def page(request):
-#     items = Pktreader.objects.all().order_by("time")
-#     params = {
-#         "items": items,
-#         "title": f"всего компов"
-#     }
-#     return render(request, "templates/page.html", params)
