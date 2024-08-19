@@ -35,10 +35,3 @@ class PktreaderViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-def computers(request):
-    items = Pktreader.objects.all().order_by("time")
-    params = {
-        "items": items,
-        "title": f"всего компов"
-    }
-    return render(request, "index/page.html", params)
