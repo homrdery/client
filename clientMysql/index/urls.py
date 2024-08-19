@@ -4,6 +4,6 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    path('', views.index),
+    path('', views.computers),
     path('computers', views.computers),
 ]
