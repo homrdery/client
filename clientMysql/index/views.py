@@ -20,4 +20,4 @@ def page(request):
         "items": items,
         "title": f"всего компов"
     }
-    return render(request, "/page.html", params)
+    return render(request, "page.html", params)
