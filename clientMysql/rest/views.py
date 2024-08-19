@@ -36,7 +36,7 @@ class PktreaderViewSet(viewsets.ModelViewSet):
 
 
 def page(request):
-    items = PktReader.objects.all().order_by("time")
+    items = Pktreader.objects.all().order_by("time")
     params = {
         "items": items,
         "title": f"всего компов"
