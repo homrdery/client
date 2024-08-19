@@ -4,6 +4,6 @@ import rest
 from . import views
 
 urlpatterns = [
-    # path('', rest.views.page),
+    path('', views.page),
     path('computers', views.computers),
 ]
