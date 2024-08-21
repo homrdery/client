@@ -29,7 +29,7 @@ class PktRecordLogViewSet(viewsets.ReadOnlyModelViewSet):
                     count += 1
                     data = obj["data"]
                     if data["type"] == 3:
-                        rec = Pktreader(time=obj["time"], mac_addr=data["hsrc"], ip_addr=data["psrc"])
+                        rec = Pktreader(time=obj["time"], mac_addr=data["hwsrc"], ip_addr=data["psrc"])
                         rec.save()
                 except KeyError as e:
                     errors.append(f"KeyError: {e}")
