@@ -19,17 +19,21 @@ class PktRecordLogViewSet(viewsets.ReadOnlyModelViewSet):
 
     @action(detail=False, methods=["post", ], url_path=r'bulk_post')
     def bulk_post(self, request):
+        errors = []
         serializer = self.serializer_class(data=request.data, many=True)
         if serializer.is_valid():
             serializer.save()
             count = 0
             for obj in request.data:
-                count += 1
-                data = obj["data"]
-                if ("type" in data) and (data["type"] == 3):
-                    rec = Pktreader(time=obj["time"], mac_addr=data["hwrc"], ip_addr=data["psrc"])
-                    rec.save()
-            return Response({"count": count}, status=HTTP_200_OK)
+                try:
+                    count += 1
+                    data = obj["data"]
+                    if data["type"] == 3:
+                        rec = Pktreader(time=obj["time"], mac_addr=data["hsrc"], ip_addr=data["psrc"])
+                        rec.save()
+                except KeyError as e:
+                    errors.append(e)
+            return Response({"count": count, "errors": errors}, status=HTTP_200_OK)
         else:
             return Response({"error": 1}, status=HTTP_200_OK)
 
