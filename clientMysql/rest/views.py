@@ -19,12 +19,14 @@ class PktRecordLogViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=["post", ], url_path=r'bulk_post')
     def bulk_post(self, request):
-        KEYS = ""
-        count = 0
-        for obj in request.data:
-            count += 1
-            # KEYS += (obj + "-")
-        return Response({"count": count}, status=HTTP_200_OK)
+        serializer = self.serializer_class(data=request.data, many=True)
+        if serializer.is_valid():
+            serializer.save()
+        # count = 0
+        # for obj in request.data:
+        #
+        #     count += 1
+        return Response({"ok"}, status=HTTP_200_OK)
 
 
 class PktreaderViewSet(viewsets.ModelViewSet):
