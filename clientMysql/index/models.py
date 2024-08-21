@@ -1,7 +1,7 @@
 from django.db import models
 
 class PktRecordLog(models.Model):
-    type = models.IntegerField("type", null=False, help_text="Тип записи")
+    type = models.IntegerField("type", verbose_name="тип", null=False, help_text="Тип записи")
     data = models.JSONField("data", null=False, help_text="Данные пакета")
     time = models.DateTimeField("time", null=False, help_text="Время добавления")
     def __str__(self):
