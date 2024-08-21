@@ -27,7 +27,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 class PktRecordLogViewSet(viewsets.ModelViewSet):
     queryset = PktRecordLog.objects.all().order_by('time')
     serializer_class = PktRecordLogSerializer
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
 class PktreaderViewSet(viewsets.ModelViewSet):
     queryset = Pktreader.objects.all().order_by('time')
