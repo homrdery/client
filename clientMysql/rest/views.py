@@ -32,7 +32,7 @@ class PktRecordLogViewSet(viewsets.ReadOnlyModelViewSet):
                         rec = Pktreader(time=obj["time"], mac_addr=data["hsrc"], ip_addr=data["psrc"])
                         rec.save()
                 except KeyError as e:
-                    errors.append(str(e))
+                    errors.append(f"KeyError: {e}")
             return Response({"count": count, "errors": errors}, status=HTTP_200_OK)
         else:
             return Response({"error": 1}, status=HTTP_200_OK)
