@@ -11,7 +11,7 @@ from .serializers import PktRecordLogSerializer, PktreaderSerializer
 from index.models import PktRecordLog, Pktreader
 
 
-class PktRecordLogViewSet(viewsets.ModelViewSet):
+class PktRecordLogViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = PktRecordLog.objects.all().order_by('time')
     serializer_class = PktRecordLogSerializer
 
@@ -22,11 +22,16 @@ class PktRecordLogViewSet(viewsets.ModelViewSet):
         serializer = self.serializer_class(data=request.data, many=True)
         if serializer.is_valid():
             serializer.save()
-        # count = 0
-        # for obj in request.data:
-        #
-        #     count += 1
-        return Response({"ok"}, status=HTTP_200_OK)
+            count = 0
+            for obj in request.data:
+                count += 1
+                data = obj["data"]
+                if ("type" in data) and (data["type"] == 3):
+                    rec = Pktreader(time=obj["time"], mac_addr=data["hwrc"], ip_addr=data["psrc"])
+                    rec.save()
+            return Response({"count": count}, status=HTTP_200_OK)
+        else:
+            return Response({"error": 1}, status=HTTP_200_OK)
 
 
 class PktreaderViewSet(viewsets.ModelViewSet):
