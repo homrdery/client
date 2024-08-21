@@ -35,7 +35,7 @@ class PktRecordLogViewSet(viewsets.ReadOnlyModelViewSet):
                     errors.append(f"KeyError: {e}")
             return Response({"count": count, "errors": errors}, status=HTTP_200_OK)
         else:
-            return Response({"error": 1}, status=HTTP_200_OK)
+            return Response({"error": "Data is not valid."}, status=HTTP_200_OK)
 
 
 class PktreaderViewSet(viewsets.ModelViewSet):
