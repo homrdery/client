@@ -14,7 +14,7 @@ class PktRecordLogViewSet(viewsets.ModelViewSet):
     queryset = PktRecordLog.objects.all().order_by('time')
     serializer_class = PktRecordLogSerializer
     permission_classes = [permissions.IsAuthenticated]
-    @action(detail=False, methods=["post",], url_path=r'bulk_post/)')
+    @action(detail=False, methods=["post",], url_path=r'bulk_post/')
     def bulk_post(self, request):
 
         return Response({}, status=HTTP_200_OK)
