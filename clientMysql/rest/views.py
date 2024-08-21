@@ -21,7 +21,7 @@ class PktRecordLogViewSet(viewsets.ModelViewSet):
     def bulk_post(self, request):
         KEYS = ""
         count = 0
-        for obj in request:
+        for obj in request.data:
             count += 1
             KEYS += (obj + "-")
         return Response({"count": count, "KEYS":KEYS}, status=HTTP_200_OK)
