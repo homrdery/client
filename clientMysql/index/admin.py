@@ -5,7 +5,8 @@ from .models import *
 @register(PktRecordLog)
 class PktRecordLogAdmin(ModelAdmin):
     list_display = ("time", "type", "data")
-
+    search_fields = ('data', 'time')
+    list_filter = ("time", )
 
 @register(Pktreader)
 class PktreaderAdmin(ModelAdmin):
