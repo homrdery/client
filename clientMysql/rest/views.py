@@ -23,8 +23,8 @@ class PktRecordLogViewSet(viewsets.ModelViewSet):
         count = 0
         for obj in request.data:
             count += 1
-            KEYS += (obj + "-")
-        return Response({"count": count, "KEYS":KEYS}, status=HTTP_200_OK)
+            # KEYS += (obj + "-")
+        return Response({"count": count}, status=HTTP_200_OK)
 
 
 class PktreaderViewSet(viewsets.ModelViewSet):
