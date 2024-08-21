@@ -55,7 +55,7 @@
 
     <main role="main">
       <p>Компьютеры</p>
-        <table width="80%" border="1" >
+        <table width="80%" border="1" id="myTable">
         <thead>
         <tr>
             <th>Мак</th>
@@ -122,6 +122,6 @@
 
     <script src="{% static 'jquery/jquery.min.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %} "></script>
-
+    <script> let table = new DataTable('#myTable'); </script>
   </body>
 </html>
