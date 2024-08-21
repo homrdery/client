@@ -14,12 +14,13 @@ from index.models import PktRecordLog, Pktreader
 class PktRecordLogViewSet(viewsets.ModelViewSet):
     queryset = PktRecordLog.objects.all().order_by('time')
     serializer_class = PktRecordLogSerializer
+
     # permission_classes = [permissions.IsAuthenticated]
 
     @action(detail=False, methods=["post", ], url_path=r'bulk_post')
     def bulk_post(self, request):
         count = 0
-        for obj in request.POST.get("data"):
+        for obj in request.POST.get("data", []):
             count += 1
         return Response({"count": count}, status=HTTP_200_OK)
 
