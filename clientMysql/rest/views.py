@@ -20,7 +20,7 @@ class PktRecordLogViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=["post", ], url_path=r'bulk_post')
     def bulk_post(self, request):
         count = 0
-        for obj in request.POST.get("data", []):
+        for obj in request.POST:
             count += 1
         return Response({"count": count}, status=HTTP_200_OK)
 
