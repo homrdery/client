@@ -13,4 +13,4 @@ def computers(request):
         "items": items,
         "title": f"всего компов"
     }
-    return render(request, "../templates/page.html", params)
+    return render(request, "index/page.html", params)
