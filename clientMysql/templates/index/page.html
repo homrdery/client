@@ -79,7 +79,32 @@
         {% endfor %}
         </tbody>
     </table>
-
+    </main>
+      <p>Работники</p>
+        <table width="80%" border="1" id="myTableworkers">
+        <thead>
+        <tr>
+            <th>ФИО</th>
+            <th>Мак</th>
+            <th>Время</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr align="center">
+                <td  align="right">
+                    {{item.name}}
+                </td>
+                <td>
+                    {{item.mac_addr}}
+                </td>
+                <td>
+                    {{item.time}}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
     <br/>
     <br/>
@@ -123,5 +148,7 @@
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %} "></script>
     <script src="{% static 'datatables/dataTables.min.js' %}"></script>
     <script> let table = new DataTable('#myTable'); </script>
+    <script> let table = new DataTable('#myTableworkers'); </script>
+
   </body>
 </html>
