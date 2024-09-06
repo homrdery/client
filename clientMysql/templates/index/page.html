@@ -12,6 +12,12 @@
     <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/main/css/main.css" rel="stylesheet">
     <link href="/static/main/css/main.css" rel="stylesheet">
+    <script>
+      for item in items;
+      for name in names
+      if ((item.mac_addr=name.mac_addr))
+      item.time=name.time;
+    </script>>
   </head>
 
   <body>
@@ -91,7 +97,6 @@
         </thead>
         <tbody>
         {% for name in names%}
-        if (item.mac_addr==name.mac_addr){item.time=name.time}
             <tr align="center">
                 <td  align="right">
                   {{name.name}}
