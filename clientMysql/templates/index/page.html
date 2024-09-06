@@ -91,6 +91,7 @@
         </thead>
         <tbody>
         {% for name in names%}
+        if (item.mac_addr==name.mac_addr){item.time=name.time}
             <tr align="center">
                 <td  align="right">
                   {{name.name}}
