@@ -91,17 +91,17 @@
         </thead>
         <tbody>
         {% for name in names%}
-        {% for item in items %}
             <tr align="center">
                 <td  align="right">
                     {{name.name}}
                 </td>
                 <td>
+                  {{name.mac_addr}}
                 </td>
                 <td>
+                  {{name.time}}
                 </td>
             </tr>
-        {% endfor %}
         {% endfor %}
         </tbody>
     </table>
