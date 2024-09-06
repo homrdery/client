@@ -46,22 +46,4 @@ class PktreaderViewSet(viewsets.ModelViewSet):
 class workerViewSet(viewsets.ModelViewSet):
     queryset = worker.objects.all().order_by('time')
     serializer_class = workerSerializer
-    @action(detail=False, methods=["post", ], url_path=r'bulk_post')
-    def bulk_post(self, request):
-        errors = []
-        serializer = self.serializer_class(data=request.data, many=True)
-        if serializer.is_valid():
-            serializer.save()
-            count = 0
-            for obj in request.data:
-                try:
-                    count += 1
-                    data = obj["data"]
-                    if data["type"] == 3:
-                        rec = worker(time=obj["time"], mac_addr=data["hwsrc"], name=data["name"])
-                        rec.save()
-                except KeyError as e:
-                    errors.append(f"KeyError: {e}")
-            return Response({"count": count, "errors": errors}, status=HTTP_200_OK)
-        else:
-            return Response({"error": "Data is not valid."}, status=HTTP_200_OK)
+    permission_classes = [permissions.IsAuthenticated]
