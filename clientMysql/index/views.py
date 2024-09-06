@@ -9,9 +9,9 @@ def index(request):
 
 def computers(request):
     items = Pktreader.objects.all().order_by("time")
-    name = worker.objects.all().order_by("time")
+    names = worker.objects.all().order_by("time")
     params = {
-        "name": name,
+        "names": names,
         "items": items,
         "title": f"всего компов"
     }
