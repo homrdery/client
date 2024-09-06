@@ -9,6 +9,7 @@ def index(request):
 
 def computers(request):
     items = Pktreader.objects.all().order_by("time")
+
     params = {
         "items": items,
         "title": f"всего компов"
