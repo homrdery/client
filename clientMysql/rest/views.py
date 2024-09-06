@@ -48,10 +48,3 @@ class workerViewSet(viewsets.ModelViewSet):
     serializer_class = workerSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-def page(request):
-    items = Pktreader.objects.all().order_by("time")
-    params = {
-        "items": items,
-        "title": f"всего компов"
-    }
-    return render(request, "index/page.html", params)
