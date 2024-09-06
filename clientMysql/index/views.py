@@ -16,3 +16,4 @@ def computers(request):
         "title": f"всего компов"
     }
     return render(request, "index/page.html", params)
+
