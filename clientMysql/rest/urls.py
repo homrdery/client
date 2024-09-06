@@ -8,7 +8,7 @@ from rest import views
 router = routers.DefaultRouter()
 router.register(r'PktRecordLog', views.PktRecordLogViewSet)
 router.register(r'Pktreader', views.PktreaderViewSet)
-router.register(r'worker', views.w)
+router.register(r'worker', views.workerViewSet)
 
 schema_view = get_schema_view(
     openapi.Info(
