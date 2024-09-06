@@ -1,6 +1,6 @@
 from django.contrib.auth.models import Group, User
 from rest_framework import serializers
-from index.models import PktRecordLog, Pktreader
+from index.models import PktRecordLog, Pktreader, worker
 
 
 class PktRecordLogSerializer(serializers.ModelSerializer):
@@ -13,7 +13,7 @@ class PktreaderSerializer(serializers.ModelSerializer):
         model = Pktreader
         fields = "__all__"
 
-# class workerSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = worker
-#         fields = "__all__"
+class workerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = worker
+        fields = "__all__"

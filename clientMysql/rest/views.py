@@ -7,8 +7,8 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK
 
-from .serializers import PktRecordLogSerializer, PktreaderSerializer
-from index.models import PktRecordLog, Pktreader
+from .serializers import PktRecordLogSerializer, PktreaderSerializer, workerSerializer
+from index.models import PktRecordLog, Pktreader, worker
 
 
 class PktRecordLogViewSet(viewsets.ReadOnlyModelViewSet):
@@ -43,10 +43,10 @@ class PktreaderViewSet(viewsets.ModelViewSet):
     serializer_class = PktreaderSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-# class workerViewSet(viewsets.ModelViewSet):
-#     queryset = worker.objects.all().order_by('time')
-#     serializer_class = workerSerializer
-#     permission_classes = [permissions.IsAuthenticated]
+class workerViewSet(viewsets.ModelViewSet):
+    queryset = worker.objects.all().order_by('time')
+    serializer_class = workerSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 def page(request):
     items = Pktreader.objects.all().order_by("time")
