@@ -43,10 +43,10 @@ class PktreaderViewSet(viewsets.ModelViewSet):
     serializer_class = PktreaderSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-class workerViewSet(viewsets.ModelViewSet):
-    queryset = worker.objects.all().order_by('time')
-    serializer_class = workerSerializer
-    permission_classes = [permissions.IsAuthenticated]
+# class workerViewSet(viewsets.ModelViewSet):
+#     queryset = worker.objects.all().order_by('time')
+#     serializer_class = workerSerializer
+#     permission_classes = [permissions.IsAuthenticated]
 
 def page(request):
     items = Pktreader.objects.all().order_by("time")

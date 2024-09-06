@@ -13,7 +13,7 @@ class PktreaderSerializer(serializers.ModelSerializer):
         model = Pktreader
         fields = "__all__"
 
-class workerSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = worker
-        fields = "__all__"
+# class workerSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = worker
+#         fields = "__all__"
