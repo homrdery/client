@@ -14,7 +14,7 @@ def logs(request):
         "items": items,
         "title": f"всего компов"
     }
-    return render(request, "logs.html", params)
+    return render(request, "index/logs.html", params)
 def computers(request):
     items = Pktreader.objects.all().order_by("time")
     names = worker.objects.all().order_by("id")
