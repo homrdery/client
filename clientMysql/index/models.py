@@ -28,7 +28,7 @@ class worker(models.Model):
     data = models.JSONField("Данные", null=False, help_text="Данные пакета")
 
     def __str__(self):
-        return f"Работник {self.mac_addr}:{self.name}:{self.time}"
+        return f"Работник {self.id}:{self.mac_addr}:{self.name}:{self.data}"
     class Meta:
         verbose_name = "Работник"
         verbose_name_plural = "Работники"
