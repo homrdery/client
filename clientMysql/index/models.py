@@ -1,5 +1,8 @@
 from django.db import models
 
+def JsonForWorkers():
+    return {}
+
 class PktRecordLog(models.Model):
     type = models.IntegerField("Тип", null=False, help_text="Тип записи")
     data = models.JSONField("Данные", null=False, help_text="Данные пакета")
@@ -25,7 +28,7 @@ class worker(models.Model):
     id = models.BigAutoField(primary_key=True)
     mac_addr = models.CharField("mac_addr", max_length=32, null=False, unique=True, blank=False, help_text="mac адрес pc")
     name = models.CharField("name", max_length=30, null=False, blank=False, help_text="фио работника")
-    data = models.JSONField("Данные", null=False, help_text="Данные пакета")
+    data = models.JSONField("Данные", null=False, default=JsonForWorkers, help_text="Данные пакета")
 
     def __str__(self):
         return f"Работник {self.id}:{self.mac_addr}:{self.name}:{self.data}"
