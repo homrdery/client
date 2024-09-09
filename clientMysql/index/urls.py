@@ -6,7 +6,7 @@ from . import views
 urlpatterns = [
     path('', views.computers),
     path('computers', views.computers),
-    path('templates/logs.html', views.logs),
-    path('templates/NeoWeb.html', views.NeoWeb)
+    path('index/logs.html', views.logs),
+    path('index/NeoWeb.html', views.NeoWeb)
 
 ]
