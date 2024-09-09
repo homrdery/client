@@ -7,7 +7,7 @@ from .models import Pktreader, worker
 def index(request):
     return render(request, "index/index.html")
 def logs(request):
-    return render(request, "templates/logs.html")
+    return render(request, "logs.html")
 def computers(request):
     items = Pktreader.objects.all().order_by("time")
     names = worker.objects.all().order_by("time")
