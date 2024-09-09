@@ -26,7 +26,7 @@ def computers(request):
     return render(request, "index/page.html")
 
 def NeoWeb(request):
-    names = worker.objects.all().order_by("id")
+    names = worker.objects.all().order_by("mac_addr")
     params = {
         "names": names,
         "title": f"всего компов"
