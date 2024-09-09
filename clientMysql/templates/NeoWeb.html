@@ -1,0 +1,130 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Webmet{% endblock %}</title>
+    {% block extra_headers %}{% endblock %}
+    <link href="/static/datatables/dataTables.dataTables.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/main/css/main.css" rel="stylesheet">
+    <link href="/static/main/css/main.css" rel="stylesheet">
+    <script>
+      for item in items;
+      for name in names
+      if ((item.mac_addr=name.mac_addr))
+      item.time=name.time;
+    </script>>
+  </head>
+
+  <body>
+    <div class="container">
+
+    <header class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Навигация</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Домашняя страница<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Логи</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          Сети
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Неолант</a>
+          <a class="dropdown-item" href="#">Другая компания</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Что то ещё</a>
+        </div>
+      </li>
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+    </header>
+
+    <main role="main">
+      <p>Компьютеры</p>
+        <table width="80%" border="1" id="myTable">
+        <thead>
+        <tr>
+            <th>ФИО</th>
+            <th>MAC адресс</th>
+            <th>Время</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for name in names %}
+            <tr align="center">
+                <td  align="right">
+                    {{name.name}}
+                </td>
+                <td>
+                    {{name.mac_addr}}
+                </td>
+                <td>
+                    {{name.time}}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    working on this
+
+
+<!--    <footer class="">-->
+    <footer class="fixed-bottom">
+      <div class="container mb-1" align="center">
+        !Footer!
+      </div>
+    </footer>
+
+    <script src="{% static 'jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+    <script src="{% static 'datatables/dataTables.min.js' %}"></script>
+    <script> let table = new DataTable('#myTable'); </script>
+  </body>
+</html>
