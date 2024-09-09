@@ -44,6 +44,6 @@ class PktreaderViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 class workerViewSet(viewsets.ModelViewSet):
-    queryset = worker.objects.all().order_by('time')
+    queryset = worker.objects.all().order_by('id')
     serializer_class = workerSerializer
     permission_classes = [permissions.IsAuthenticated]

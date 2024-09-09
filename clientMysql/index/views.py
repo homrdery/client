@@ -8,7 +8,7 @@ def index(request):
     return render(request, "index/index.html")
 def logs(request):
     items = Pktreader.objects.all().order_by("time")
-    names = worker.objects.all().order_by("time")
+    names = worker.objects.all().order_by("id")
     params = {
         "names": names,
         "items": items,
@@ -17,7 +17,7 @@ def logs(request):
     return render(request, "logs.html", params)
 def computers(request):
     items = Pktreader.objects.all().order_by("time")
-    names = worker.objects.all().order_by("time")
+    names = worker.objects.all().order_by("id")
     params = {
         "names": names,
         "items": items,
