@@ -16,7 +16,7 @@
     <div class="container">
 
     <header class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">Навигация</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -24,92 +24,31 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Домашняя страница<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="templates/logs.html">Логи</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-          Dropdown
+          Сети
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="templates/NeoWeb.html">Неолант</a>
+          <a class="dropdown-item" href="#">Другая компания</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">Что то ещё</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled">Disabled</a>
-      </li>
+
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
   </div>
     </header>
 
     <main role="main">
-      <p>Компьютеры</p>
-        <table width="80%" border="1" >
-        <thead>
-        <tr>
-            <th>Мак</th>
-            <th>адрес</th>
-            <th>Время</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for item in items %}
-            <tr align="center">
-                <td  align="right">
-                    {{item.mac_addr}}
-                </td>
-                <td>
-                    {{item.ip_addr}}
-                </td>
-                <td>
-                    {{item.time}}
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    </main>
-
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    working on this
-    </div>
+      {% block body %}
+      {% endblock %}
 
 <!--    <footer class="">-->
     <footer class="fixed-bottom">
