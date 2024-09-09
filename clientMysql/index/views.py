@@ -31,4 +31,4 @@ def NeoWeb(request):
         "names": names,
         "title": f"всего компов"
     }
-    return render(request, "logs.html", params)
+    return render(request, "NeoWeb.html", params)
