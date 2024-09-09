@@ -26,7 +26,7 @@ class worker(models.Model):
     name = models.CharField("name", max_length=30, null=False, blank=False, help_text="фио работника")
     time = models.DateTimeField("Время", null=False, help_text="Время добавления")
     def __str__(self):
-        return f"компьютер {self.mac_addr}:{self.name}:{self.time}"
+        return f"Работник {self.mac_addr}:{self.name}:{self.time}"
     class Meta:
         verbose_name = "Работник"
         verbose_name_plural = "Работники"
