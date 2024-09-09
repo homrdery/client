@@ -14,7 +14,7 @@ def logs(request):
         "items": items,
         "title": f"всего компов"
     }
-    return render(request, "templates/logs.html", params)
+    return render(request, "logs.html", params)
 def computers(request):
     items = Pktreader.objects.all().order_by("time")
     names = worker.objects.all().order_by("time")
@@ -31,4 +31,4 @@ def NeoWeb(request):
         "names": names,
         "title": f"всего компов"
     }
-    return render(request, "templates/NeoWeb.html", params)
+    return render(request, "NeoWeb.html", params)
