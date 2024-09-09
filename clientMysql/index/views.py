@@ -23,7 +23,7 @@ def computers(request):
         "items": items,
         "title": f"всего компов"
     }
-    return render(request, "index/mainpage.html")
+    return render(request, "mainpage.html")
 
 def NeoWeb(request):
     names = worker.objects.all().order_by("time")
