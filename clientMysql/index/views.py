@@ -25,7 +25,7 @@ def computers(request):
     }
     return render(request, "index/page.html")
 
-def NeoWeb(request):
+def addr(request):
     names = worker.objects.all().order_by("id")
     params = {
         "names": names,
