@@ -25,7 +25,6 @@ class Pktreader(models.Model):
         verbose_name_plural = "компьютеры"
 
 class worker(models.Model):
-    id = models.BigAutoField(primary_key=True)
     mac_addr = models.CharField("mac_addr", max_length=32, null=False, unique=True, blank=False, help_text="mac адрес pc")
     name = models.CharField("name", max_length=30, null=False, blank=False, help_text="фио работника")
     data = models.JSONField("Данные", null=False, default=JsonForWorkers, help_text="Данные пакета")
