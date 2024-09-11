@@ -13,3 +13,10 @@ class PktreaderAdmin(ModelAdmin):
     # pass
     list_display = ("mac_addr", "ip_addr", "time")
     search_fields = ('mac_addr', 'ip_addr')
+
+@register(worker)
+class WorkerAdmin(ModelAdmin):
+    list_display = ("name", "mac_addr", "data")
+    search_fields = ('mac_addr', 'name')
+    list_filter = ("mac_addr")
+
