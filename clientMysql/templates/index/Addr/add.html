@@ -1,5 +1,6 @@
+{% load crispy_forms_tags %}
 {% extends "mainpage.html" %}
 {% block body %}
+{% crispy ModelForm %}
 {{mac_addr}}
-<a href="{%url ''">
 {% endblock %}
