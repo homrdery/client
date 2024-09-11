@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Pktreader, worker
-
+from .forms import addForm
 
 # Create your views here.
 
@@ -41,7 +41,9 @@ def addr(request):
 
 
 def add(request):
+    form = addForm()
     params = {
+        "form": form,
         "mac_addr": request.GET.get("mac_addr", "---")
     }
     return render(request, "index/Addr/add.html", params)
