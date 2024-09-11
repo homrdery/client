@@ -11,6 +11,7 @@ class addForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Отправить', css_class='btn btn-primary float-end'))
+
     class Meta:
         model = worker
         fields = ('name', 'mac_addr')

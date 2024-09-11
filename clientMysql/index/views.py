@@ -41,7 +41,8 @@ def addr(request):
 
 
 def add(request):
-    form = addForm()
+    form = addForm(initial={"mac_addr": request.GET.get("mac_addr", "---")})
+
     params = {
         "form": form,
         "mac_addr": request.GET.get("mac_addr", "---")
