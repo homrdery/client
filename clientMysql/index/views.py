@@ -32,3 +32,5 @@ def addr(request):
         "title": f"всего компов"
     }
     return render(request, "index/Addr.html", params)
+def add(request):
+    return render(request, "index/Addr/add.html")
