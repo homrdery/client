@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Pktreader, worker
 from .forms import addForm
 
@@ -41,12 +41,11 @@ def addr(request):
 
 
 def addPost(request):
-    form = addForm(initial={"mac_addr": request.GET.get("mac_addr", "---")})
-
-    params = {
-        "form": form,
-    }
-    return render(request, "index/Addr/add.html", params)
+    if request.method == "POST":
+        form = addForm(request.POST)
+        if form.is_valid():
+            form.save()
+    return redirect(request, "index/Addr.html")
 
 
 def add(request):
