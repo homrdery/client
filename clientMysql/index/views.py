@@ -41,7 +41,7 @@ def addr(request):
 
 
 def add(request):
-    class params:
-        mac_addr = request.GET.get("mac_addr", "---")
-
+    params = {
+        "mac_addr": request.GET.get("mac_addr", "---")
+    }
     return render(request, "index/Addr/add.html", params)
