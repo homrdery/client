@@ -10,7 +10,7 @@ class addForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.form_action = 'Addr/addPost/'
+        self.helper.form_action = ''
         self.helper.add_input(Submit('submit', 'Отправить', css_class='btn btn-primary float-end'))
 
     class Meta:
