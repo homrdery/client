@@ -1,7 +1,11 @@
-# from django import forms
-# from .models import PktRecord
-#
-# class ContactForm(forms.ModelForm):
-#     class Meta:
-#         model = PktRecord
-#         fields = "__all__"
+from django import forms
+from .models import worker
+import crispy_forms
+
+class addForm(forms.ModelForm):
+
+
+    class Meta:
+        model = worker
+        fields = ('name', 'mac_addr')
+
