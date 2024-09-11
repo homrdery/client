@@ -45,7 +45,7 @@ def addPost(request):
         form = addForm(request.POST)
         if form.is_valid():
             form.save()
-    return redirect(request, "index/Addr.html")
+    return redirect("index/Addr.html")
 
 
 def add(request):
