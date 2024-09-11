@@ -10,7 +10,7 @@ class addForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Отправить отзыв', css_class='btn btn-primary float-end'))
+        self.helper.add_input(Submit('submit', 'Отправить', css_class='btn btn-primary float-end'))
     class Meta:
         model = worker
         fields = ('name', 'mac_addr')
