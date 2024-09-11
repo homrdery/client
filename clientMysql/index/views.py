@@ -44,6 +44,6 @@ def add(request):
     form = addForm(initial={"mac_addr": request.GET.get("mac_addr", "---")})
 
     params = {
-        "form": form
+        "form": form,
     }
     return render(request, "index/Addr/add.html", params)
