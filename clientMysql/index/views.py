@@ -24,7 +24,6 @@ def logs(request):
     params = {
         "names": names,
         "items": items,
-        "form": form,
 
         "title": f"всего компов"
     }
