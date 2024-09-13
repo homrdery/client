@@ -68,4 +68,4 @@ def add(request):
     params = {
         "form": form,
     }
-    return render(request, "index/Addr/add.html", params)
+    return render(request, "index/logs.html", params)
