@@ -7,13 +7,12 @@ from crispy_forms.layout import Submit, Hidden, Button, Layout, Fieldset, Field,
 
 
 class addForm(forms.ModelForm):
+    action = forms.CharField(widget=forms.HiddenInput(), initial="sub", required=True)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.form_action = '/Addr/addPost/'
-        self.helper.add_input(Submit('submit', 'Отправить', css_class='btn btn-primary float-end'))
-        self.helper.layout = Layout(Modal(Field('name'), Button("submit", "Оправить", css_class='btn btn-primery float-end'),  css_id="myModal", title='РАботаееет'))
+        self.helper.layout = Layout(Modal(Field('name'), Button("submit", "Оправить", css_class='btn btn-primery float-end', onClick=),  css_id="myModal", title='РАботаееет'))
         self.fields['mac_addr'].widget = HiddenInput()
 
 
