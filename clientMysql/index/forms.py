@@ -13,7 +13,7 @@ class addForm(forms.ModelForm):
         self.helper.form_method = 'post'
         self.helper.form_action = '/Addr/addPost/'
         self.helper.add_input(Submit('submit', 'Отправить', css_class='btn btn-primary float-end'))
-        self.helper.layout = Layout(Modal(Field('name'), Button("submit", "Оправить", css_class='btn btn-primery float-end', onClick=self.helper.form_action()),  css_id="myModal", title='РАботаееет'))
+        self.helper.layout = Layout(Modal(Field('name'), Button("submit", "Оправить", css_class='btn btn-primery float-end', onClick=self.helper.form_action),  css_id="myModal", title='РАботаееет'))
         self.fields['mac_addr'].widget = HiddenInput()
 
 
