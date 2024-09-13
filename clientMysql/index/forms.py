@@ -11,7 +11,7 @@ class addForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.form_action = '/index/logs'
+        self.helper.form_action = '/Addr/addpost/'
         self.helper.add_input(Submit('submit', 'Отправить', css_class='btn btn-primary float-end'))
         self.helper.layout = Layout(Fieldset('name', 'mac_addr'))
         self.fields['mac_addr'].widget = HiddenInput()
