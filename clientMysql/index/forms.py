@@ -12,8 +12,8 @@ class addForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.layout = Layout(Modal(Field('name'), Button("submit", "Оправить", css_class='btn btn-primery float-end'),  css_id="myModal", title='РАботаееет'))
-        self.fields['mac_addr'].widget = HiddenInput()
+        self.helper.layout = Layout(Modal(Field('name', 'mac_addr'), Button("submit", "Оправить", css_class='btn btn-primery float-end'),  css_id="myModal", title='РАботаееет'))
+        # self.fields['mac_addr'].widget = HiddenInput()
 
 
     class Meta:
