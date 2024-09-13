@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.views.generic.edit import CreateView
 from django.shortcuts import render, redirect
 from .models import Pktreader, worker
 from .forms import addForm
@@ -39,6 +40,15 @@ def addr(request):
     }
     return render(request, "index/Addr.html", params)
 
+
+class Formview(CreateView):
+    model = worker
+    fields = ['name', 'mac_addr']
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.helper = FormHelper()
+        helper.add_input(Submit('submit', 'Отправить', css_class='btn btn-primary float-end'))
+        return form
 
 
 def formadd(request):
