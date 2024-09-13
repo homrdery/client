@@ -14,7 +14,7 @@
             {% for item in items %}
                 <tr align="center">
                     <td  align="right">
-                        <button onclick="getform();">{{item.mac_addr}}</button>
+                        <button onclick="getform({{item.mac_addr}});">{{item.mac_addr}}</button>
 
                     </td>
                     <td>
@@ -35,8 +35,8 @@
 {% endblock %}
 {% block JSscripts%}
     <script>
-    function getform () {
-        $('#Form').load('/getform.html?action=sub&mac_addr={{mac_addr}}', function(responseTxt, statusTxt, jqXHR)
+    function getform (mac_addr) {
+        $('#Form').load('/getform.html?action=sub&mac_addr=mac_addr', function(responseTxt, statusTxt, jqXHR)
             {
                 if(statusTxt == 'success'){
                         $('#addForm').modal();
