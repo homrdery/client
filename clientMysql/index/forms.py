@@ -12,8 +12,10 @@ class addForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.form_action = '/Addr/addPost/'
-        self.helper.add_input(Submit('submit', 'Отправить', css_class='btn btn-primary float-end'))
+        self.helper.layout = Layout(Fieldset('name', 'mac_addr'), Button('submit', 'Отправить', css_class='btn btn-primary float-end'))
+        # self.helper.add_input(Submit('submit', 'Отправить', css_class='btn btn-primary float-end'))
         self.fields['mac_addr'].widget = HiddenInput()
+
 
     class Meta:
         model = worker
