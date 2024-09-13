@@ -10,8 +10,8 @@ class addForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        # self.helper.form_method = 'post'
-        # self.helper.form_action = '/index/logs'
+        self.helper.form_method = 'post'
+        self.helper.form_action = '/index/logs'
         self.helper.layout = Layout(Fieldset('name', 'mac_addr'), Button('submit', 'Отправить', css_class='btn btn-primary float-end'))
         # self.helper.add_input(Submit('submit', 'Отправить', css_class='btn btn-primary float-end'))
         self.fields['mac_addr'].widget = HiddenInput()
