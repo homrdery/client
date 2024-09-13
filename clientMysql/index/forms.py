@@ -13,7 +13,7 @@ class addForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.layout = Layout(Modal(Field('name', 'mac_addr'), Button("submit", "Оправить", css_class='btn btn-primery float-end'),  css_id="addForm", title='РАботаееет'))
-        # self.fields['mac_addr'].widget = HiddenInput()
+        self.fields['mac_addr'].widget = HiddenInput()
 
 
     class Meta:
