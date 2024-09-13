@@ -14,7 +14,7 @@
             {% for item in items %}
                 <tr align="center">
                     <td  align="right">
-                        <button onclick="getform({{item.mac_addr}});">{{item.mac_addr}}</button>
+                        <button onclick='getform("{{item.mac_addr}}");'>{{item.mac_addr}}</button>
 
                     </td>
                     <td>
