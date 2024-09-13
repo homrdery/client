@@ -11,9 +11,15 @@ def index(request):
 
 
 def logs(request):
+    if request.method == "POST":
+        action = request.POST.get("action")
+        if action == "sub":
+            form = addForm(request.POST)
+            if form.is_valid():
+                form.save()
+
     items = Pktreader.objects.all().order_by("time")
     names = worker.objects.all().order_by("id")
-    form = addForm(initial={"mac_addr": request.GET.get("mac_addr", "---")})
 
     params = {
         "names": names,
