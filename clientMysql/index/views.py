@@ -61,6 +61,7 @@ def addPost(request):
             form.save()
     return redirect("/Addr.html")
 def getform(request):
+
     if request.method == 'GET':
         action = request.GET.get("action")
         if action == "sub":
@@ -75,7 +76,7 @@ def getform(request):
         #     form = DeleteUserForm(initial=args)
 
     params = {
-        "UserForm": form,
+        "form": form,
     }
     return render(request, "index/Addr/add.html", params)
 def add(request):
