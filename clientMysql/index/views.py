@@ -40,18 +40,25 @@ def addr(request):
     return render(request, "index/Addr.html", params)
 
 
-def addPost(request):
+
+def formadd(request):
     if request.method == "POST":
         form = addForm(request.POST)
         if form.is_valid():
             form.save()
-    return redirect("/Addr.html")
-
-
-def add(request):
-    form = addForm(initial={"mac_addr": request.GET.get("mac_addr", "---")})
-
-    params = {
-        "form": form,
-    }
-    return render(request, "index/logs.html", params)
+    return render(request, 'logs.html', {'form':form})
+# def addPost(request):
+#     if request.method == "POST":
+#         form = addForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#     return redirect("/Addr.html")
+#
+#
+# def add(request):
+#     form = addForm(initial={"mac_addr": request.GET.get("mac_addr", "---")})
+#
+#     params = {
+#         "form": form,
+#     }
+#     return render(request, "index/logs.html", params)
