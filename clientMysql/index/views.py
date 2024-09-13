@@ -60,8 +60,24 @@ def addPost(request):
         if form.is_valid():
             form.save()
     return redirect("/Addr.html")
+def getform(request):
+    if request.method == 'GET':
+        action = request.GET.get("action")
+        if action == "sub":
+            form = addForm()
+        # if action == "EditUser":
+        #     user_id = request.GET.get("id")
+        #     args = Person.objects.get_person_info(user_id)
+        #     form = UserFormEdit(initial=args)
+        # if action == "DeleteUser":
+        #     user_id = request.GET.get("id")
+        #     args = {"id": user_id}
+        #     form = DeleteUserForm(initial=args)
 
-
+    params = {
+        "UserForm": form,
+    }
+    return render(request, "index/logs.html", params)
 def add(request):
     form = addForm(initial={"mac_addr": request.GET.get("mac_addr", "---")})
 

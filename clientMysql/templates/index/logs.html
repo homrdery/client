@@ -1,5 +1,4 @@
 {% extends "mainpage.html" %}
-{% load crispy_forms_tags %}
 {% block body %}
     <div class="container">
         <p>Компьютеры</p>
@@ -15,7 +14,7 @@
             {% for item in items %}
                 <tr align="center">
                     <td  align="right">
-                        <a href="/logs.html" data-toggle="modal" data-target="#myModal">{{item.mac_addr}}</a>
+                        <a href=""  onclick="getform">{{item.mac_addr}}</a>
 
                     </td>
                     <td>
@@ -31,10 +30,22 @@
     </div>
     <div class="container">
     </div>
-{% crispy form %}
     working on this
-
+<div id="Form"></div>
 {% endblock %}
 {% block JSscripts%}
+    <script>
+    function getform () {
+        $('#Form').load('/getform.html?action=sub&mac_addr={{mac_addr}}', function(responseTxt, statusTxt, jqXHR)
+            {
+                if(statusTxt == 'success'){
+                        $('#addForm').modal();
+                    }
+                    if(statusTxt == 'error'){
+                        alert('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+                    }
+                }
+    }
+    </script>
     <script> let table = new DataTable('#myTable', {language: {url: '/static/datatables/ru.json'}});</script>
 {% endblock %}
