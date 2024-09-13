@@ -13,9 +13,13 @@ def index(request):
 def logs(request):
     items = Pktreader.objects.all().order_by("time")
     names = worker.objects.all().order_by("id")
+    form = addForm(initial={"mac_addr": request.GET.get("mac_addr", "---")})
+
     params = {
         "names": names,
         "items": items,
+        "form": form,
+
         "title": f"всего компов"
     }
     return render(request, "index/logs.html", params)
