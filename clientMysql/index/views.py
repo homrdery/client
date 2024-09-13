@@ -64,4 +64,4 @@ def add(request):
     params = {
         "form": form,
     }
-    return render(request, "/Addr/add", params)
+    return render(request, "/Addr/add.html", params)
