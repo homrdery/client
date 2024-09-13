@@ -7,7 +7,7 @@ urlpatterns = [
     path('', views.computers),
     path('mainpage.html', views.computers),
     path('logs.html', views.logs),
-    path('Addr.html', views.addr)
-    # path('logs.html', views.formadd)
-    # path('Addr/addPost/', views.addPost)
+    path('Addr.html', views.addr),
+    path('logs.html', views.add),
+    path('Addr/addPost/', views.addPost)
 ]
