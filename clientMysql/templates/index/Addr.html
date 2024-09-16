@@ -75,6 +75,105 @@
                 }
     );
     }
+    $( function () {
+    var table = $('#{TABLE_ID}').DataTable({
+    dom: 'Bfrtip',
+    buttons: [
+        {
+            text:      '<i class="fa fa-plus"></i>',
+            titleAttr: 'Add item',
+            action: function ( e, dt, node, config ) {
+                alert( 'Button activated' );
+                }
+        },
+        {
+            text:      '<i class="fa fa-pen"></i>',
+            action: function ( e, dt, node, config ) {
+                alert( 'Button activated' );
+            }
+        },
+        {
+            text:      '<i class="fas fa-trash  aria-hidden="true"></i>',
+            action: function ( e, dt, node, config ) {
+                alert( 'Button activated' );
+            }
+        }
+    ],
+
+    pageLength: 25,
+    language: {
+        url:"/static/main/js/datatables/Russian.json"
+        },
+});
+    var buttons = table.buttons( ['.edit', '.delete'] );
+
+    if ( table.rows( { selected: true } ).indexes().length === 0 ) {
+    buttons.disable();
+    }
+    else {
+    buttons.enable();
+    }
+
+    $('#{TABLE_ID} tbody').on('click', 'tr', function () {
+        if ($(this).hasClass('selected')) {
+        $(this).removeClass('selected');
+    } else {
+        table.$('tr.selected').removeClass('selected');
+        $(this).addClass('selected');
+    }
+    });
+} )
     </script>
-    <script>  let table = new DataTable('#myTable', {language: {url: '/static/datatables/ru.json'}}); </script>
+    <script>
+    $( function () {
+        var table = $('#myTable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                text:      '<i class="fa fa-plus"></i>',
+                titleAttr: 'Add item',
+                action: function ( e, dt, node, config ) {
+                    alert( 'Button activated' );
+                    }
+            },
+            {
+                text:      '<i class="fa fa-pen"></i>',
+                action: function ( e, dt, node, config ) {
+                    alert( 'Button activated' );
+                }
+            },
+            {
+                text:      '<i class="fas fa-trash  aria-hidden="true"></i>',
+                action: function ( e, dt, node, config ) {
+                    alert( 'Button activated' );
+                }
+            }
+        ],
+
+        pageLength: 25,
+        language: {
+            url:"/static/datatables/ru.json"
+            },
+    });
+        var buttons = table.buttons( ['.edit', '.delete'] );
+
+        if ( table.rows( { selected: true } ).indexes().length === 0 ) {
+        buttons.disable();
+        }
+        else {
+        buttons.enable();
+        }
+
+        $('#myTable tbody').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        } else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+        });
+    } )
+
+
+</script>
 {% endblock %}
