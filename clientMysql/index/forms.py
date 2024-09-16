@@ -10,13 +10,13 @@ APPNAME = "client"
 logger = logging.getLogger(APPNAME)
 
 def list_mac_addr():
-    box = Pktreader.objects.all().order_by('mac_addr').values_list('mac_addr')
-
+    box = Pktreader.objects.all().order_by('mac_addr').values_list('mac_addr', 'mac_addr')
+    logger.error(box)
     return box
 class addForm(forms.ModelForm):
     action = forms.CharField(widget=forms.HiddenInput(), initial="sub", required=True)
-    # mac_addr = forms.ChoiceField(choices=list_mac_addr)
-    mac_addr = forms.CharField(widget=forms.Select(choices=list_mac_addr()))
+    mac_addr = forms.ChoiceField(choices=list_mac_addr)
+    # mac_addr = forms.CharField(widget=forms.Select(choices=list_mac_addr))
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -30,7 +30,7 @@ class addForm(forms.ModelForm):
         model = worker
         fields = ('name', 'mac_addr')
 
-# logger.error(list_mac_addr())
+
 # class addFormAddr(forms.ModelForm):
 #     action = forms.CharField(widget=forms.HiddenInput(), initial="sub", required=True)
 #     def __init__(self, *args, **kwargs):
