@@ -89,7 +89,7 @@ def getform(request):
     params = {
         "form": form,
     }
-    return render(request, "index/Addr.html", params)
+    return render(request, "index/Addr/add.html", params)
 def add(request):
     form = addForm(initial={"mac_addr": request.GET.get("mac_addr", "---")})
 
