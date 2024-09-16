@@ -1,6 +1,6 @@
 from django import forms
 from .models import worker
-from django.forms import HiddenInput
+from django.forms import HiddenInput, ChoiceField
 from crispy_forms.bootstrap import Modal
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Hidden, Button, Layout, Fieldset, Field, HTML, Reset, Row, Column
@@ -13,7 +13,7 @@ class addForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.form_action = ''
-        self.helper.layout = Layout(Modal(Field('name', select='mac_addr'), Field('mac_addr', select='mac_addr'), Field('action'), Submit("submit", "Оправить", css_class='btn btn-primery float-end'),  css_id="addForm", title='РАботаееет'))
+        self.helper.layout = Layout(Modal(Field('name'), Field('mac_addr', ChoiceField(choices='mac_addr')), Field('action'), Submit("submit", "Оправить", css_class='btn btn-primery float-end'),  css_id="addForm", title='РАботаееет'))
         # self.fields['mac_addr'].widget = HiddenInput()
 
 
