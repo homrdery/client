@@ -36,7 +36,6 @@ def logs(request):
 
 
 def addr(request):
-    names = worker.objects.all().order_by("id")
     error = ""
     if request.method == "POST":
         action = request.POST.get("action")
@@ -46,6 +45,7 @@ def addr(request):
                 form.save()
             else:
                 error = form.errors
+    names = worker.objects.all().order_by("id")
     params = {
         "names": names,
         "eror": error,
