@@ -85,6 +85,8 @@ def getform(request):
         action = request.GET.get("action")
         if action == "sub":
             form = addForm(initial={"mac_addr": request.GET.get("mac_addr", "---")})
+        if action == "subAddr":
+            AddrForm = addFormAddr()
         # if action == "EditUser":
         #     user_id = request.GET.get("id")
         #     args = Person.objects.get_person_info(user_id)
@@ -96,6 +98,7 @@ def getform(request):
 
     params = {
         "form": form,
+        "AddrForm": AddrForm,
 
     }
     return render(request, "index/Addr/add.html", params)
