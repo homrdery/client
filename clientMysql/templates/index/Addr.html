@@ -65,7 +65,7 @@
 {% block JSscripts%}
     <script>
     function getform () {
-        $('#Form').load('/getform.html?action=sub, function(responseTxt, statusTxt, jqXHR)
+        $('#Form').load('/getform.html?action=subAddr', function(responseTxt, statusTxt, jqXHR)
             {
                 if(statusTxt == 'success'){
                         $('#addFormAddr').modal();
