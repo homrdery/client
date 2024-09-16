@@ -118,14 +118,7 @@
         },
 });
     var buttons = table.buttons( ['#BtEdit', '.delete'] );
-    var BtEdit =  table.buttons(['#BtEdit']);
 
-    if ( table.rows( { selected: true } ).indexes().length === 0 ) {
-    buttons.disable();
-    }
-    else {
-    buttons.enable();
-    }
     table.on( 'select deselect', function () {
         var selectedRows = table.rows( { selected: true } ).count();
         buttons.enable( selectedRows === 1 );
