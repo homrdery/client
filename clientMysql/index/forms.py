@@ -11,7 +11,7 @@ logger = logging.getLogger(APPNAME)
 
 def list_mac_addr():
     box = []
-    for mac in Pktreader.objects.order_by('mac_addr').values_list('mac_addr', flat=True)
+    for mac in Pktreader.objects.order_by('mac_addr').values_list('mac_addr', flat=True):
         items = worker.objects.filter(mac_addr = mac).values_list('id')
         if len(items) == 0:
             box.append((mac, mac))
