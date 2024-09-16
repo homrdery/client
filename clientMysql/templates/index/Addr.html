@@ -90,12 +90,20 @@
         },
         {
             text:      '<i class="fa fa-pen"></i>',
+            attr:  {
+                title: 'Edit item',
+                id: 'BtEdit'
+                },
+            init: function ( dt, node, config ) {
+                this.disable();
+            },
             action: function ( e, dt, node, config ) {
                 alert( 'Button activated' );
             }
         },
         {
             text:      '<i class="fas fa-trash  aria-hidden="true"></i>',
+
             action: function ( e, dt, node, config ) {
                 alert( 'Button activated' );
             }
