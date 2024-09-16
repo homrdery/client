@@ -3,7 +3,7 @@
 <button onclick='getform("{{item.mac_addr}}");'></button>
     <div class="container">
          <p>Неолант</p>
-            <button onclick='getform("{{item.mac_addr}}");'>Добавить</button>
+            <button onclick='getform;'>Добавить</button>
 
             <table width="80%" border="1" id="myTable">
             <thead>
@@ -64,7 +64,7 @@
 {% endblock %}
 {% block JSscripts%}
     <script>
-    function getform (mac_addr) {
+    function getform () {
         $('#Form').load('/getform.html?action=sub, function(responseTxt, statusTxt, jqXHR)
             {
                 if(statusTxt == 'success'){
