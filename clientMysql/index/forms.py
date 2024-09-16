@@ -8,10 +8,12 @@ from crispy_forms.layout import Submit, Hidden, Button, Layout, Fieldset, Field,
 
 def list_mac_addr():
     box = Pktreader.objects.all().order_by('mac_addr').values_list('mac_addr')
+
     return box
 class addForm(forms.ModelForm):
     action = forms.CharField(widget=forms.HiddenInput(), initial="sub", required=True)
-    mac_addr = forms.ChoiceField(choices=list_mac_addr)
+    # mac_addr = forms.ChoiceField(choices=list_mac_addr)
+    mac_addr = forms.CharField(widget=forms.Select(choices=list_mac_addr))
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
