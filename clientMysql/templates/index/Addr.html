@@ -125,7 +125,8 @@
 
         var selectedRows = table.rows( { selected: true } ).count();
         buttons.enable( selectedRows === 1 );
-        console.log(buttons)
+        table.buttons(['#BtEdit']).enable(true)
+        console.log(table.buttons(['#BtEdit']))
     });
 } )
 </script>
