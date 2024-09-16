@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.views.generic.edit import CreateView
 from django.shortcuts import render, redirect
 from .models import Pktreader, worker
-from .forms import addForm
+from .forms import addForm, addFormAddr
 
 # Create your views here.
 
@@ -47,8 +47,18 @@ def computers(request):
 
 def addr(request):
     names = worker.objects.all().order_by("id")
+    error = ""
+    if request.method == "POST":
+        action = request.POST.get("action")
+        if action == "subAddr":
+            form = addFormAddr(request.POST)
+            if form.is_valid():
+                form.save()
+            else:
+                error = form.errors
     params = {
         "names": names,
+        "eror": error,
         "title": f"всего компов"
     }
     return render(request, "index/Addr.html", params)

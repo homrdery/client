@@ -35,7 +35,7 @@ class addForm(forms.ModelForm):
 
 
 class addFormAddr(forms.ModelForm):
-    action = forms.CharField(widget=forms.HiddenInput(), initial="sub", required=True)
+    action = forms.CharField(widget=forms.HiddenInput(), initial="subAddr", required=True)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()

@@ -68,7 +68,7 @@
         $('#Form').load('/getform.html?action=sub, function(responseTxt, statusTxt, jqXHR)
             {
                 if(statusTxt == 'success'){
-                        $('#addForm').modal();
+                        $('#addFormAddr').modal();
                     }
                     if(statusTxt == 'error'){
                         alert('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
