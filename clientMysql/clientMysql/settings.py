@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'crispy_forms',
     'crispy_bootstrap4',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
+    'fontawesomefree'
 
 ]
 
