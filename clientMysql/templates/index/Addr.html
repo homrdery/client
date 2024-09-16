@@ -132,7 +132,9 @@
         var buttons = table.buttons(['#BtEdit'], ['#BtDelete']);
 
         var selectedRows = table.rows( { selected: true } ).count();
-        buttons.enable( true);
+        table.buttons(['#BtEdit'], ['#BtDelete']).enable( selectedRows === 1 );
+
+
     });
 } )
 </script>
