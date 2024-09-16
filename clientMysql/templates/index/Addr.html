@@ -119,7 +119,6 @@
             }
         }
     ],
-
     pageLength: 25,
     select: true,
     rowId: 'id',
@@ -131,9 +130,6 @@
         var selectedRows = table.rows( { selected: true } ).count();
         table.buttons(['#BtEdit']).enable( selectedRows === 1 );
         table.buttons(['#BtDelete']).enable( selectedRows > 0 );
-
-
-
     });
 } )
 </script>
