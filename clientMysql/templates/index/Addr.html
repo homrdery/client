@@ -120,9 +120,10 @@
     var buttons = table.buttons( ['#BtEdit', '.delete'] );
 
     table.on( 'select deselect', function () {
+
         var selectedRows = table.rows( { selected: true } ).count();
         buttons.enable( selectedRows === 1 );
-
+        console.log($(buttons.enable(selectedRows === 1 ))
     });
 } )
 </script>
