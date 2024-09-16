@@ -111,11 +111,14 @@
     ],
 
     pageLength: 25,
+    select: true,
+    rowId: 'id',
     language: {
         url:"/static/datatables/ru.json"
         },
 });
-    var buttons = table.buttons( ['.edit', '.delete'] );
+    var buttons = table.buttons( ['#BtEdit', '.delete'] );
+    var BtEdit =  table.buttons(['#BtEdit']);
 
     if ( table.rows( { selected: true } ).indexes().length === 0 ) {
     buttons.disable();
@@ -123,7 +126,10 @@
     else {
     buttons.enable();
     }
-
+    table.on( 'select deselect', function () {
+        var selectedRows = table.rows( { selected: true } ).count();
+        buttons.enable( selectedRows === 1 );
+    } );
     $('#myTable tbody').on('click', 'tr', function () {
         if ($(this).hasClass('selected')) {
         $(this).removeClass('selected');
