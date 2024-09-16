@@ -127,10 +127,10 @@
         url:"/static/datatables/ru.json"
         },
 });
-    let buttons = table.buttons(['#BtEdit'], ['#BtDelete']);
-    let BtEdit =  table.buttons(['#BtEdit']);
 
     table.on( 'select deselect', function () {
+        var buttons = table.buttons(['#BtEdit'], ['#BtDelete']);
+        var BtEdit =  table.buttons(['#BtEdit']);
 
         var selectedRows = table.rows( { selected: true } ).count();
         buttons.enable( selectedRows === 1 );
