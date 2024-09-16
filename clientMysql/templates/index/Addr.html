@@ -123,14 +123,6 @@
         var selectedRows = table.rows( { selected: true } ).count();
         buttons.enable( selectedRows === 1 );
     } );
-    $('#myTable tbody').on('click', 'tr', function () {
-        console.log($(this))
-        if ($(this).hasClass('selected')) {
-        $(this).removeClass('selected');
-    } else {
-        table.$('tr.selected').removeClass('selected');
-        $(this).addClass('selected');
-    }
     });
 } )
 </script>
