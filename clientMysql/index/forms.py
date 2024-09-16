@@ -19,7 +19,7 @@ class addForm(forms.ModelForm):
         return ()
     class Meta:
         model = worker
-        fields = ('name', 'mac_addr')
+        fields = ('name', 'mac_addr', 'data')
 
 
 # class addFormAddr(forms.ModelForm):
