@@ -129,15 +129,13 @@
 });
     var buttons = table.buttons(['#BtEdit'], ['#BtDelete']);
     var BtEdit =  table.buttons(['#BtEdit']);
-    console.log(buttons)
 
     table.on( 'select deselect', function () {
 
         var selectedRows = table.rows( { selected: true } ).count();
         buttons.enable( selectedRows === 1 );
-        BtEdit.enable(selectedRows === 1)
-        console.log(table.buttons(['#BtEdit']))
-        console.log(buttons)
+        BtEdit.enable(true)
+
 
     });
 } )
