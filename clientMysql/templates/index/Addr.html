@@ -1,5 +1,6 @@
 {% extends "mainpage.html" %}
 {% block body %}
+<button onclick='getform("{{item.mac_addr}}");'></button>
     <div class="container">
          <p>Неолант</p>
             <table width="80%" border="1" id="myTable">
@@ -55,8 +56,24 @@
     <br/>
     <br/>
     <br/>
+<div id="Form">{{error}}</div>
+
     working on this
 {% endblock %}
 {% block JSscripts%}
+    <script>
+    function getform (mac_addr) {
+        $('#Form').load('/getform.html, function(responseTxt, statusTxt, jqXHR)
+            {
+                if(statusTxt == 'success'){
+                        $('#addForm').modal();
+                    }
+                    if(statusTxt == 'error'){
+                        alert('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+                    }
+                }
+    );
+    }
+    </script>
     <script>  let table = new DataTable('#myTable', {language: {url: '/static/datatables/ru.json'}}); </script>
 {% endblock %}
