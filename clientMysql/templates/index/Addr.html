@@ -134,7 +134,7 @@
     table.on( 'select deselect', function () {
 
         var selectedRows = table.rows( { selected: true } ).count();
-        // buttons.enable( selectedRows === 1 );
+        buttons.enable( selectedRows === 1 );
         // table.buttons(['#BtEdit']).enable(selectedRows === 1)
         console.log(table.buttons(['#BtEdit']))
         console.log(buttons)
