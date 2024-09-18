@@ -66,7 +66,7 @@ class reFormAddr(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.layout = Layout(Modal(Field('id'),Field('mac_addr','name'),Field('action'), Submit("edit", "Изменить", css_class='btn btn-primery float-end'),  css_id="addFormdel", title=f'Изменить запись  {self.data["name"]}'))
+        self.helper.layout = Layout(Modal(Field('id'),Field('mac_addr','name'),Field('action'), Submit("edit", "Изменить", css_class='btn btn-primery float-end'),  css_id="addFormdel", title=f'Изменить запись  {self.data["name"].get}'))
 
     class Meta:
         model = worker
