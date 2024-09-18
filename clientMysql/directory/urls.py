@@ -4,5 +4,5 @@ import rest
 from directory import views
 
 urlpatterns = [
-    path('/dir', views)
+    path('dir/', views)
 ]
