@@ -59,4 +59,4 @@ class delFormAddr(forms.ModelForm):
 
     class Meta:
         model = worker
-        fields = ('__all__',)
+        fields = ('__all__')
