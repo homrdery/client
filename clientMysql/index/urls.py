@@ -7,7 +7,6 @@ urlpatterns = [
     path('', views.index),
     path('logs.html', views.logs),
     path('Addr.html', views.addr),
-    path('/logs.html', views.add),
     path('Addr/addPost/', views.addPost),
     path('getform.html', views.getform)
 ]
