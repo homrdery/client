@@ -15,7 +15,6 @@ function deladdr( e, dt, node, config )  {
     if (confirm('Are you sure you want to delete this item?')) {
         var id = table.$('tr.selected')[0].id;
         console.log('Delete user id ='+id);
-        console.log(id);
         $("#Form").load("/getform.html?action=delAddr&id="+id, function(responseTxt, statusTxt, jqXHR)
         {
             if(statusTxt == 'success'){
@@ -23,8 +22,12 @@ function deladdr( e, dt, node, config )  {
                 }
                 if(statusTxt == 'error'){
                     alert('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+                    console.log(id);
+
                 }
         });
+        console.log(id);
+
     }
 }
 
