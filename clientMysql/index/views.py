@@ -34,16 +34,17 @@ def logs(request):
     }
     return render(request, "index/logs.html", params)
 
+def delete(request, pk):
+    addrs = get_object_or_404(worker, pk=pk)
+    addrs.delete()
 
-
-def addr(request, pk):
+def addr(request):
     error = ""
     if request.method == "POST":
-        addrs = get_object_or_404(worker, pk=pk)
         action = request.POST.get("action")
         if action == "delAddr":
             form = delFormAddr(request.POST)
-            addrs.delete()
+            delete()
             if form.is_valid():
                 form.save()
             else:
