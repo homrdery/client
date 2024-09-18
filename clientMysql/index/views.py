@@ -58,7 +58,7 @@ def addr(request):
                 form.save()
             else:
                 error = form.errors
-
+                logger.error(error)
         if action == "subAddr":
             form = addFormAddr(request.POST)
             if form.is_valid():
