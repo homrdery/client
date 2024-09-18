@@ -111,11 +111,10 @@ def getform(request):
 
         if action == "reAddr":
             id = request.GET.get("id", False)
-            name = request.GET.get('name', False)
+            # name = request.GET.get('name', False)
             if id:
-                reFormAddr(name=name)
-                # obj = worker.objects.get(id=id)
-                # form = reFormAddr(instance=obj)
+                obj = worker.objects.get(id=id)
+                form = reFormAddr(instance=obj)
 
         # if action == "EditUser":
         #     user_id = request.GET.get("id")
