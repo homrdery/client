@@ -51,6 +51,8 @@ def getform(request):
 
     if request.method == 'GET':
         action = request.GET.get("action")
+        if action == "subAddr":
+            form = addFormAddr()
         if action == "delAddr":
             id = request.GET.get("id", False)
             if id:
