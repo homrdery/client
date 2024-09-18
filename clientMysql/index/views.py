@@ -44,7 +44,7 @@ def addr(request):
         action = request.POST.get("action")
         if action == "delAddr":
             form = delFormAddr(request.POST)
-            delete()
+            
             if form.is_valid():
                 form.save()
             else:
