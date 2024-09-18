@@ -8,5 +8,5 @@ urlpatterns = [
     path('logs.html', views.logs),
     path('Addr.html', views.addr),
     path('Addr/addPost/', views.addPost),
-    path('getform.html', views.getform)
+    path('getform.html', views.getform),
 ]
