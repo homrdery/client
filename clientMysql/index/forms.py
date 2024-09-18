@@ -35,7 +35,7 @@ class addForm(forms.ModelForm):
 
 
 class addFormAddr(forms.ModelForm):
-    action = forms.CharField(widget=forms.HiddenInput(), initial="subAddr", required=True)
+    action = forms.CharField(widget=forms.HiddenInput(), initial="subAddr/", required=True)
     mac_addr = forms.ChoiceField(choices=list_mac_addr)
 
     def __init__(self, *args, **kwargs):
