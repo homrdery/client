@@ -49,10 +49,9 @@ def addr(request):
             id = int(request.POST.get("id"))
             try:
                 obj = worker.objects.get(id=id)
+                obj.delete()
             except worker.DoesNotExist as e:
                 logger.error(f"Не существуе {id}")
-
-            obj.delete()
         if action == "subAddr":
             form = addFormAddr(request.POST)
             if form.is_valid():
