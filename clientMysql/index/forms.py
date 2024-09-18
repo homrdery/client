@@ -51,7 +51,7 @@ class addFormAddr(forms.ModelForm):
 
 class delFormAddr(forms.ModelForm):
     action = forms.CharField(widget=forms.HiddenInput(), initial="delAddr", required=True)
-
+    id = forms.IntegerField(widget=forms.HiddenInput(), required=True)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
