@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView
 
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Pktreader, worker
-from .forms import addForm, addFormAddr, delFormAddr
+from .forms import addForm, addFormAddr, delFormAddr, reFormAddr
 import logging
 
 APPNAME = "client"
@@ -51,7 +51,13 @@ def addr(request):
                 obj = worker.objects.get(id=id)
                 obj.delete()
             except worker.DoesNotExist as e:
-                logger.error(f"Не существуе {id}")
+                logger.error(f"Не существует {id}")
+        if action == "reAddr":
+            id = int(request.POST.get("id"))
+            try:
+                pass
+                obj = worker.objects.get(id=id)
+                # obj
         if action == "subAddr":
             form = addFormAddr(request.POST)
             if form.is_valid():
@@ -96,7 +102,12 @@ def getform(request):
                 obj = worker.objects.get(id=id)
                 form = delFormAddr(instance=obj)
 
-
+        if action == "reAddr":
+            id = request.GET.get("id", False)
+            name = request.GET.get('name', False)
+            if id:
+                obj = worker.objects.get(id=id)
+                form = reFormAddr(instance=obj)
         # if action == "EditUser":
         #     user_id = request.GET.get("id")
         #     args = Person.objects.get_person_info(user_id)
