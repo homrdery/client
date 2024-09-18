@@ -60,10 +60,9 @@ class delFormAddr(forms.ModelForm):
     class Meta:
         model = worker
         fields = '__all__'
-class reFormAddr(forms.ModelForm):
+class reFormAddr(forms.ModelForm, name=""):
     action = forms.CharField(widget=forms.HiddenInput(), initial="reAddr", required=True)
     id = forms.IntegerField(widget=forms.HiddenInput(), required=True)
-    name = ""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
