@@ -44,7 +44,11 @@ def addr(request):
         action = request.POST.get("action")
         if action == "delAddr":
             id = int(request.POST.get("id"))
-            obj = worker.objects.get(id=id)
+            try:
+                obj = worker.objects.get(id=id)
+            except('DoesNotExist'):
+                print("Не существует")
+
             obj.delete()
         if action == "subAddr":
             form = addFormAddr(request.POST)
