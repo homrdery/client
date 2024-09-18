@@ -8,8 +8,24 @@ function getform () {
                         alert('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
                     }
                 }
-    );
+        );
+    };
+
+function delete( e, dt, node, config )  {
+    if (confirm('Are you sure you want to delete this item?')) {
+        var id = table.$('tr.selected')[0].id;
+        console.log('Delete user id ='+id);
+        $("#Form").load("/getform.html?action=delAddr&id="+id, function(responseTxt, statusTxt, jqXHR)
+        {
+            if(statusTxt == 'success'){
+                    $('#addFormdel').submit();
+                }
+                if(statusTxt == 'error'){
+                    alert('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+                }
+        });
     }
+}
 
 function tableinit () {
     var table = $('#myTable').DataTable({
@@ -49,21 +65,8 @@ function tableinit () {
             init: function ( dt, node, config ) {
                 this.disable();
             },
-            action:     function ( e, dt, node, config )  {
-                if (confirm('Are you sure you want to delete this item?')) {
-                    var id = table.$('tr.selected')[0].id;
-                    console.log('Delete user id ='+id);
-                    $("#Form").load("/getform.html?action=delAddr&id="+id, function(responseTxt, statusTxt, jqXHR)
-                    {
-                        if(statusTxt == 'success'){
-                                $('#addFormdel').submit();
-                            }
-                            if(statusTxt == 'error'){
-                                alert('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
-                            }
-                    }
-                );
-            }
+            action:    delete
+
         }
     ],
     pageLength: 25,
