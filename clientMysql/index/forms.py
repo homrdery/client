@@ -35,7 +35,7 @@ class addForm(forms.ModelForm):
 
 
 class addFormAddr(forms.ModelForm):
-    action = forms.CharField(widget=forms.HiddenInput(), initial="subAddr", required=True)
+    action = forms.CharField(widget=forms.HiddenInput(), initial="delAddr", required=True)
     mac_addr = forms.ChoiceField(choices=list_mac_addr)
 
     def __init__(self, *args, **kwargs):
@@ -48,3 +48,16 @@ class addFormAddr(forms.ModelForm):
     class Meta:
         model = worker
         fields = ('name', 'mac_addr')
+
+class delFormAddr(forms.ModelForm):
+    action = forms.CharField(widget=forms.HiddenInput(), initial="delAddr", required=True)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_action = ''
+        self.helper.layout = Layout(Modal(Field('action'), Button('delete', 'Delete', onclick='window.location.href="{}"'.format('../delete')),  css_id="addFormdel", title='РАботаееет'))
+
+    class Meta:
+        model = worker
+        fields = ()

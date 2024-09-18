@@ -1,8 +1,9 @@
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView
-from django.shortcuts import render, redirect
+
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Pktreader, worker
-from .forms import addForm, addFormAddr
+from .forms import addForm, addFormAddr, delFormAddr
 
 # Create your views here.
 
@@ -35,10 +36,18 @@ def logs(request):
 
 
 
-def addr(request):
+def addr(request, pk):
     error = ""
     if request.method == "POST":
+        addrs = get_object_or_404(worker, pk=pk)
         action = request.POST.get("action")
+        if action == "delAddr":
+            form = delFormAddr(request.POST)
+            addrs.delete()
+            if form.is_valid():
+                form.save()
+            else:
+                error = form.errors
         if action == "subAddr":
             form = addFormAddr(request.POST)
             if form.is_valid():
@@ -77,6 +86,8 @@ def getform(request):
             form = addForm(initial={"mac_addr": request.GET.get("mac_addr", "---")})
         if action == "subAddr":
             form = addFormAddr()
+        if action == "delAddr":
+            form = delFormAddr()
         # if action == "EditUser":
         #     user_id = request.GET.get("id")
         #     args = Person.objects.get_person_info(user_id)
