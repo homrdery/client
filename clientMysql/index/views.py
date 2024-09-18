@@ -42,7 +42,7 @@ def addr(request):
     error = ""
     if request.method == "POST":
         action = request.POST.get("action")
-        if action == "addrdel":
+        if action == "delAddr":
             id = int(request.POST.get("id"))
             obj = worker.objects.get(id=id)
             obj.delete()
