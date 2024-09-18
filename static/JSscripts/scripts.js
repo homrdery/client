@@ -1,4 +1,4 @@
-{% block JSscripts%}
+{% block JSscriptsJS %}
     function getform () {
         $('#Form').load('/getform.html?action=subAddr', function(responseTxt, statusTxt, jqXHR)
             {
