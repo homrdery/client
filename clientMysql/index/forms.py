@@ -60,4 +60,4 @@ class delFormAddr(forms.ModelForm):
 
     class Meta:
         model = worker
-        fields = ('mac_addr')
+        fields = ('mac_addr', )
