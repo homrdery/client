@@ -18,15 +18,13 @@ function deladdr( e, dt, node, config )  {
         $("#Form").load("/getform.html?action=delAddr&id="+id, function(responseTxt, statusTxt, jqXHR)
         {
             if(statusTxt == 'success'){
-                    $('#addFormdel').submit();
+                    $('#addFormdel').modal();
                 }
                 if(statusTxt == 'error'){
                     alert('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
-                    console.log(id);
 
                 }
         });
-        console.log(id);
 
     }
 }
