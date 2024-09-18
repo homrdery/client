@@ -26,7 +26,7 @@ class addForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.form_action = ''
-        self.helper.layout = Layout(Modal(Field('name'), Field('mac_addr'),Field('data'),Field('action'), Submit("submit", "Оправить", css_class='btn btn-primery float-end'),  css_id="addForm", title='обавить новую запись'))
+        self.helper.layout = Layout(Modal(Field('name'), Field('mac_addr'),Field('action'), Submit("submit", "Оправить", css_class='btn btn-primery float-end'),  css_id="addForm", title='обавить новую запись'))
 
 
     class Meta:
