@@ -64,7 +64,6 @@ def getform(request):
             if id:
                 obj = dirAddr.objects.get(id=id)
                 form = delFormAddr(instance=obj)
-
         if action == "reAddr":
             id = request.GET.get("id", False)
             # name = request.GET.get('name', False)
