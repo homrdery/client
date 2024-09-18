@@ -26,7 +26,7 @@ class addForm(forms.ModelForm):
 
     class Meta:
         model = dirAddr
-        fields = ('name', 'mac_addr', 'data')
+        fields = ('name', 'mac_addr')
 
 class delFormAddr(forms.ModelForm):
     action = forms.CharField(widget=forms.HiddenInput(), initial="delAddr", required=True)
