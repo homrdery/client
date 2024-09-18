@@ -4,7 +4,10 @@ from django.views.generic.edit import CreateView
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Pktreader, worker
 from .forms import addForm, addFormAddr, delFormAddr
+import logging
 
+APPNAME = "client"
+logger = logging.getLogger(APPNAME)
 # Create your views here.
 
 def index(request):
@@ -46,8 +49,8 @@ def addr(request):
             id = int(request.POST.get("id"))
             try:
                 obj = worker.objects.get(id=id)
-            except('DoesNotExist'):
-                print("Не существует")
+            except worker.DoesNotExist as e:
+                logger.error(f"Не существуе {id}")
 
             obj.delete()
         if action == "subAddr":
