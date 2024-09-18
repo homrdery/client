@@ -51,7 +51,7 @@ function tableinit () {
             init: function ( dt, node, config ) {
                 this.disable();
             },
-            action: function deladdr( e, dt, node, config )  {
+            action: function readdr( e, dt, node, config )  {
                 var id = $('#myTable').DataTable.$('tr.selected')[0].id;
                 console.log('Delete user id ='+id);
                 $("#Form").load("/getform.html?action=reAddr&id="+id, function(responseTxt, statusTxt, jqXHR)
