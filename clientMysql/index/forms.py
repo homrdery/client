@@ -63,10 +63,11 @@ class delFormAddr(forms.ModelForm):
 class reFormAddr(forms.ModelForm):
     action = forms.CharField(widget=forms.HiddenInput(), initial="reAddr", required=True)
     id = forms.IntegerField(widget=forms.HiddenInput(), required=True)
+    name = ""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.layout = Layout(Modal(Field('id'),Field('mac_addr','name'),Field('action'), Submit("edit", "Изменить", css_class='btn btn-primery float-end'),  css_id="addFormdel", title=f'Изменить запись о '))
+        self.helper.layout = Layout(Modal(Field('id'),Field('mac_addr','name'),Field('action'), Submit("edit", "Изменить", css_class='btn btn-primery float-end'),  css_id="addFormdel", title=f'Изменить запись о {self.name}'))
 
     class Meta:
         model = worker
