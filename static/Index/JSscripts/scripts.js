@@ -13,7 +13,7 @@ function getform () {
 
 function deladdr( e, dt, node, config )  {
         var id = $('#myTable').DataTable.$('tr.selected')[0].id;
-        console.log('Delete user id ='+id);
+        console.log('Выбран пользователь под id ='+id);
         $("#Form").load("/getform.html?action=delAddr&id="+id, function(responseTxt, statusTxt, jqXHR)
         {
             if(statusTxt == 'success'){
