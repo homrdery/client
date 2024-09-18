@@ -42,13 +42,6 @@ def addr(request):
     error = ""
     if request.method == "POST":
         action = request.POST.get("action")
-        if action == "delAddr":
-            form = delFormAddr(request.POST)
-
-            if form.is_valid():
-                form.save()
-            else:
-                error = form.errors
         if action == "subAddr":
             form = addFormAddr(request.POST)
             if form.is_valid():
@@ -88,7 +81,12 @@ def getform(request):
         if action == "subAddr":
             form = addFormAddr()
         if action == "delAddr":
-            form = delFormAddr(initial={"id": request.GET.get("id", "---")})
+            id = request.GET.get("id", False)
+            if id:
+                obj = worker.objects.get(id=id)
+                form = delFormAddr(instance=obj)
+
+
         # if action == "EditUser":
         #     user_id = request.GET.get("id")
         #     args = Person.objects.get_person_info(user_id)
