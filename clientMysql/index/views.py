@@ -42,6 +42,10 @@ def addr(request):
     error = ""
     if request.method == "POST":
         action = request.POST.get("action")
+        if action == "addrdel":
+            id = request.POST.get("id")
+            obj = worker.objects.get(id=id)
+            obj.delete()
         if action == "subAddr":
             form = addFormAddr(request.POST)
             if form.is_valid():
