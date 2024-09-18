@@ -39,6 +39,12 @@ def addr(request):
                     logger.error(error)
             except dirAddr.DoesNotExist as e:
                 logger.error(f"Не существует {id}")
+        if action == "subAddr":
+            form = addFormAddr(request.POST)
+            if form.is_valid():
+                form.save()
+            else:
+                error = form.errors
     names = dirAddr.objects.all().order_by("id")
     params = {
         "names": names,
