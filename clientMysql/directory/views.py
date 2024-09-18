@@ -12,7 +12,7 @@ logger = logging.getLogger(APPNAME)
 # Create your views here.
 
 def diricory(request):
-    return render(request, "index/page.html")
+    return render(request, "directory/dirAddr.html")
 
 
 def addr(request):
