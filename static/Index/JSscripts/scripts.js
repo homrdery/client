@@ -12,7 +12,6 @@ function getform () {
     };
 
 function deladdr( e, dt, node, config )  {
-    if (confirm('Are you sure you want to delete this item?')) {
         var id = $('#myTable').DataTable.$('tr.selected')[0].id;
         console.log('Delete user id ='+id);
         $("#Form").load("/getform.html?action=delAddr&id="+id, function(responseTxt, statusTxt, jqXHR)
@@ -26,7 +25,6 @@ function deladdr( e, dt, node, config )  {
                 }
         });
 
-    }
 }
 
 function tableinit () {
