@@ -44,7 +44,7 @@ def addr(request):
         action = request.POST.get("action")
         if action == "delAddr":
             form = delFormAddr(request.POST)
-            
+
             if form.is_valid():
                 form.save()
             else:
@@ -88,7 +88,7 @@ def getform(request):
         if action == "subAddr":
             form = addFormAddr()
         if action == "delAddr":
-            form = delFormAddr()
+            form = delFormAddr(initial={"id": request.GET.get("id", "---")})
         # if action == "EditUser":
         #     user_id = request.GET.get("id")
         #     args = Person.objects.get_person_info(user_id)
