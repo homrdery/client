@@ -11,7 +11,7 @@ logger = logging.getLogger(APPNAME)
 # Create your views here.
 
 def index(request):
-    return render(request, "index/index.html")
+    return render(request, "index/page.html")
 
 
 def logs(request):
