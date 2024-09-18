@@ -11,7 +11,7 @@ function getform () {
         );
     };
 
-function delete( e, dt, node, config )  {
+function deladdr( e, dt, node, config )  {
     if (confirm('Are you sure you want to delete this item?')) {
         var id = table.$('tr.selected')[0].id;
         console.log('Delete user id ='+id);
@@ -65,7 +65,7 @@ function tableinit () {
             init: function ( dt, node, config ) {
                 this.disable();
             },
-            action:    delete
+            action:    deladdr
 
         }
     ],
