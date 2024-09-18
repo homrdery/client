@@ -55,7 +55,7 @@ class delFormAddr(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.layout = Layout(Modal(Field('mac_addr'),Field('action'), Submit("delete", "Удалить", css_class='btn btn-primery float-end'),  css_id="addFormdel", title='РАботаееет'))
+        self.helper.layout = Layout(Modal(Field('mac_addr', 'id'),Field('action'), Submit("delete", "Удалить", css_class='btn btn-primery float-end'),  css_id="addFormdel", title='РАботаееет'))
 
     class Meta:
         model = worker
