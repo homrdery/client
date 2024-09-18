@@ -53,13 +53,18 @@ def addr(request):
             except worker.DoesNotExist as e:
                 logger.error(f"Не существует {id}")
         if action == "reAddr":
-            form = reFormAddr(request.POST)
-            if form.is_valid():
-                form.save()
-            else:
-                error = form.errors
-                logger.error(error)
+            try:
 
+                id = int(request.POST.get("id"))
+                obj = worker.objects.get(id=id)
+                form = reFormAddr(request.POST, instance=obj)
+                if form.is_valid():
+                    form.save()
+                else:
+                    error = form.errors
+                    logger.error(error)
+            except worker.DoesNotExist as e:
+                logger.error(f"Не существует {id}")
         if action == "subAddr":
             form = addFormAddr(request.POST)
             if form.is_valid():
