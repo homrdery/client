@@ -43,7 +43,7 @@ def addr(request):
     if request.method == "POST":
         action = request.POST.get("action")
         if action == "addrdel":
-            id = request.POST.get("id")
+            id = int(request.POST.get("id"))
             obj = worker.objects.get(id=id)
             obj.delete()
         if action == "subAddr":
