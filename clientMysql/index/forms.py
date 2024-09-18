@@ -70,4 +70,4 @@ class reFormAddr(forms.ModelForm):
 
     class Meta:
         model = worker
-        fields = '__all__'
+        fields = ('id','mac_addr', 'name')
