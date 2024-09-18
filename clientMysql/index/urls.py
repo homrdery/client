@@ -9,6 +9,5 @@ urlpatterns = [
     path('Addr.html', views.addr),
     path('/logs.html', views.add),
     path('Addr/addPost/', views.addPost),
-    path('getform.html', views.getform),
-    path(r'^delete/(?P<pk>[0-9]+)/$', views.delete, name='addrs_delete')
+    path('getform.html', views.getform)
 ]
