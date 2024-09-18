@@ -122,7 +122,7 @@
                     $("#Form").load("/getform.html?action=delAddr&id="+id,function(responseTxt, statusTxt, jqXHR)
                     {
                         if(statusTxt == 'success'){
-                                $('#addFormdel').modal();
+                                $('#addFormdel').submit();
                             }
                             if(statusTxt == 'error'){
                                 alert('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
