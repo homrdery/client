@@ -4,5 +4,7 @@ import rest
 from . import views
 
 urlpatterns = [
-    path('addr', views.addr)
+    path('addr', views.addr),
+    path('directory/getform.html', views.getform),
+
 ]
