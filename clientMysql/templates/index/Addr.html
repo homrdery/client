@@ -115,8 +115,11 @@
             init: function ( dt, node, config ) {
                 this.disable();
             },
-            action:     function getform () {
-                $('#Form').load('/getform.html?action=delAddr', function(responseTxt, statusTxt, jqXHR)
+            action:     function ( e, dt, node, config )  {
+                if (confirm('Are you sure you want to delete this item?')) {
+                    var id = table.$('tr.selected')[0].id;
+                    console.log('Delete user id ='+id);
+                    $("#Form").load("/getform.html?action=delAddr&id="+id,function(responseTxt, statusTxt, jqXHR)
                     {
                         if(statusTxt == 'success'){
                                 $('#addFormdel').modal();
