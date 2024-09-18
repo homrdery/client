@@ -1,5 +1,4 @@
-{% block JSscriptsJS %}
-    function getform () {
+function getform () {
         $('#Form').load('/getform.html?action=subAddr', function(responseTxt, statusTxt, jqXHR)
             {
                 if(statusTxt == 'success'){
@@ -11,9 +10,8 @@
                 }
     );
     }
-/script>
-<script>
-    $( function () {
+
+function tableinit () {
     var table = $('#myTable').DataTable({
     dom: 'Bfrtip',
     buttons: [
@@ -80,5 +78,8 @@
         table.buttons(['#BtEdit']).enable( selectedRows === 1 );
         table.buttons(['#BtDelete']).enable( selectedRows > 0 );
     });
-} )
-{% endblock %}
+}
+
+$(tableinit);
+
+
