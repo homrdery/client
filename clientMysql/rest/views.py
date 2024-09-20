@@ -9,7 +9,7 @@ from rest_framework.status import HTTP_200_OK
 
 from .serializers import PktRecordLogSerializer, PktreaderSerializer, workerSerializer
 from index.models import PktRecordLog, Pktreader, worker
-
+from directory.models import dirAddr
 
 class PktRecordLogViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = PktRecordLog.objects.all().order_by('time')
@@ -46,4 +46,9 @@ class PktreaderViewSet(viewsets.ModelViewSet):
 class workerViewSet(viewsets.ModelViewSet):
     queryset = worker.objects.all().order_by('id')
     serializer_class = workerSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class dirAddrViewSet(viewsets.ModelViewSet):
+    queryset = dirAddr.objects.all().order_by('id')
+    serializer_class = dirAddrSerializer
     permission_classes = [permissions.IsAuthenticated]
