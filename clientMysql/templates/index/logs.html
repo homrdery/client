@@ -2,23 +2,15 @@
 {% block body %}
     <div class="container">
         <p>Компьютеры</p>
-        <table width="80%" border="1" >
+        <table width="80%" border="1" id="myTable">
             <thead>
             <tr>
-                <th>Имя</th>
                 <th>MAC адрес</th>
                 <th>адрес</th>
                 <th>Время</th>
             </tr>
             </thead>
             <tbody>
-            {%for name in names%}
-                <tr>
-                    <td>
-                        {{name.name}}
-                    </td>
-                </tr>
-            {% endfor %}
             {% for item in items %}
                 <tr align="center">
 
