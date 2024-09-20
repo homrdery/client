@@ -7,7 +7,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK
 
-from .serializers import PktRecordLogSerializer, PktreaderSerializer, workerSerializer
+from .serializers import PktRecordLogSerializer, PktreaderSerializer, workerSerializer, dirAddrSerializer
 from index.models import PktRecordLog, Pktreader, worker
 from directory.models import dirAddr
 
